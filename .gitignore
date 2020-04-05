@@ -1,0 +1,3 @@
+# Don't commit dumped emojos
+*.gif
+*.png
