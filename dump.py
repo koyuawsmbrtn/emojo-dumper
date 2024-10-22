@@ -1,7 +1,12 @@
 import requests
 import os
+from dotenv import load_dotenv
 
-r = requests.get("https://mastodon.de/api/v1/custom_emojis")
+instance = os.getenv("INSTANCE")
+if not instance:
+    raise ValueError("INSTANCE is not set! Make sure the environment variable or .env exists.")
+
+r = requests.get("https://"+instance+"/api/v1/custom_emojis")
 j = r.json()
 
 for item in j:

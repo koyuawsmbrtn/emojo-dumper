@@ -2,10 +2,14 @@ import os
 import requests
 from dotenv import load_dotenv
 
-url = "https://leonie.lgbt/api/v1/admin/custom_emojis"
 access_token = os.getenv("ACCESS_TOKEN")
+instance = os.getenv("INSTANCE")
+if not instance:
+    raise ValueError("INSTANCE is not set! Make sure the environment variable or .env exists.")
 if not access_token:
     raise ValueError("ACCESS_TOKEN is not set! Make sure the environment variable or .env exists.")
+
+url = "https://"+instance+"/api/v1/admin/custom_emojis"
 
 directory = "."
 
