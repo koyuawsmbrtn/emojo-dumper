@@ -1,7 +1,7 @@
 import requests
 import os
 
-r = requests.get("https://koyu.space/api/v1/custom_emojis")
+r = requests.get("https://mastodon.de/api/v1/custom_emojis")
 j = r.json()
 
 for item in j:

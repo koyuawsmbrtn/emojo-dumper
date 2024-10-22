@@ -1,3 +1,7 @@
 # Don't commit dumped emojos
 *.gif
 *.png
+*.webp
+
+# Don't commit access token
+.env
