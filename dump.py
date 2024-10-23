@@ -15,7 +15,13 @@ for item in j:
         if category:
             if item["category"] == category:
                 extension = item["url"].split(".")[len(item["url"].split(".")) - 1]
-                os.system("wget -O "+item["shortcode"]+"."+extension+" "+item["url"])
+                if not os.path.exists(item["shortcode"]+"."+extension):
+                    os.system("wget -c -O "+item["shortcode"]+"."+extension+" "+item["url"])
+                else:
+                    print("File already exists: "+item["shortcode"]+"."+extension)
         else:
             extension = item["url"].split(".")[len(item["url"].split(".")) - 1]
-            os.system("wget -O "+item["shortcode"]+"."+extension+" "+item["url"])
+            if not os.path.exists(item["shortcode"]+"."+extension):
+                os.system("wget -c -O "+item["shortcode"]+"."+extension+" "+item["url"])
+            else:
+                print("File already exists: "+item["shortcode"]+"."+extension)
